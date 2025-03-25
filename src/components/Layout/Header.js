@@ -2,11 +2,11 @@ import Logo from "../UI/Logo";
 import HeaderCartButton from "./HeaderCartButton";
 import "./header.css"
 
-const Header = () => {
+const Header = (props) => {
     return (
         <header className="header">
             <Logo />
-            <HeaderCartButton />
+            <HeaderCartButton onClick={props.onClick} />
         </header>
     )
 }
