@@ -2,7 +2,7 @@ import "./button.css"
 
 const Button = (props) => {
     return (
-        <button className={`btn ${props.className}`}>
+        <button className={`btn ${props.className}`} onClick={props.onClick}>
             {props.children}
         </button>
     )
