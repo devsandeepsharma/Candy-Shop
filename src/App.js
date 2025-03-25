@@ -1,5 +1,9 @@
+import Header from "./components/Layout/Header";
+
 function App() {
-  return <h1>Candy Shop</h1>;
+  return (
+    <Header />
+  );
 }
 
 export default App;

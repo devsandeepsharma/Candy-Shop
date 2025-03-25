@@ -1,0 +1,11 @@
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+@media (min-width: 750px) {
+    .logo {
+        font-size: 30px;
+    }
+}
