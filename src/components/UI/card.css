@@ -5,6 +5,7 @@
     border-radius: 16px;
     margin-top: 64px;
     background-color: #ffffff;
+    flex: 1 1 300px;
 }
 
 .card_img {
@@ -15,12 +16,17 @@
     left: 26px;
     border: 2px solid;
     border-radius: 16px;
+    background-color: #f6c3d4;
 }
 
 .card_title {
     margin-top: 35px;
     font-size: 25px;
     font-weight: bolder;
+}
+
+.card_price {
+    color: #FF4081;
 }
 
 .card_desc {
@@ -31,5 +37,11 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-top: 32px;
+    margin-top: 18px;
+}
+
+@media (min-width: 1000px) {
+    .card {
+        flex: 1 1 400px;
+    }
 }

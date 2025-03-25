@@ -1,16 +1,14 @@
 import "./card.css";
 
-import demoImg from "../../assets/demo.jpg"
 import Button from "./Button";
 
-const Card = () => {
+const Card = (props) => {
     return (
         <div className="card">
-            <img className="card_img" src={demoImg} alt="candy image" />
-            <h2 className="card_title">Candy Name</h2>
-            <p className="card_desc">
-                Candy  Description lorem ipsum 2 lines
-            </p>
+            <img className="card_img" src={props.img} alt="candy image" />
+            <h2 className="card_title">{props.name}</h2>
+            <p className="card_price">Rs. {props.price}/-</p>
+            <p className="card_desc">{props.desc}</p>
             <div className="flex-container">
                 <Button className="btn-primary">1x</Button>
                 <Button className="btn-primary">2x</Button>
