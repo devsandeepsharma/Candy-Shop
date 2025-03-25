@@ -5,9 +5,19 @@
     gap: 16px;
 }
 
+.candies-container li {
+    flex: 1 1 300px;
+}
+
 @media (min-width: 750px) {
     .candies-container {
         padding: 32px;
         gap: 32px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .candies-container li {
+        flex: 1 1 400px;
     }
 }

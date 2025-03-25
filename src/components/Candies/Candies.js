@@ -19,13 +19,20 @@ const candiesData = [
 
 const Candies = () => {
     return (
-        <div className="candies-container">
+        <ul className="candies-container">
             {
                 candiesData.map(candy => (
-                    <Card name={candy.name} desc={candy.desc} price={candy.price} img={candy.img} />
+                    <li key={candy.name} >
+                        <Card 
+                            name={candy.name} 
+                            desc={candy.desc} 
+                            price={candy.price} 
+                            img={candy.img} 
+                        />
+                    </li>
                 ))
             }
-        </div>
+        </ul>
     )
 }
 
