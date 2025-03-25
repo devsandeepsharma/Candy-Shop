@@ -1,0 +1,27 @@
+# Candy Shop
+
+Sellers can add candies with the following inputs: :-
+    > Candy Name
+    > Candy Description
+    > Candy Price
+
+Customers can add candies to the cart in the following quantities: :-
+    > 1 Candy
+    > 2 Candy
+    > 3 Candy
+
+Add following features :-
+    > Show added Candies on the Screen
+    > Show Cart Candies with total Price
+    
+Use following technologies :-
+    > React 
+    > CSS
+    > JavaScript
+    > useContext
+
+Additional functinality
+    > Form Validation 
+    > Responsive 
+
+Best of luck ✨✨💕
