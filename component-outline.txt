@@ -1,0 +1,19 @@
+# Component Outline
+
+<App />
+    <Model />
+        <Add more candies />
+        <Cart page
+    <Header />
+        <Logo />
+        <Add to Card />
+    <Candies />
+        <CandyCard />
+            <img />
+            <title />
+            <description />
+            <price />
+            <button />
+        <CandyCard />
+        <CandyCard />
+    <Footer />
