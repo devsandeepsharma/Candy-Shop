@@ -1,0 +1,35 @@
+.card {
+    position: relative;
+    padding: 27px;
+    border: 2px solid #333333;
+    border-radius: 16px;
+    margin-top: 64px;
+    background-color: #ffffff;
+}
+
+.card_img {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: -51px;
+    left: 26px;
+    border: 2px solid;
+    border-radius: 16px;
+}
+
+.card_title {
+    margin-top: 35px;
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.card_desc {
+    margin: 8px 0;
+}
+
+.flex-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
+}

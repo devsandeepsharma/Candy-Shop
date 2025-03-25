@@ -1,0 +1,20 @@
+.btn-primary {
+    background-color: #ff4081;
+    color: #ffffff;
+    outline: 2px solid #ff4081;
+}
+
+.btn-primary:active {
+    animation: bump 300ms ease-out;
+}
+
+.btn-secondary {
+    background-color: #ffe6f2;
+    color: #333333;
+    outline: 2px solid #333333;
+}
+
+.btn-secondary:active {
+    animation: bump 300ms ease-out;
+}
+
