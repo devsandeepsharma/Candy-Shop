@@ -20,8 +20,11 @@ Use following technologies :-
     > JavaScript
     > useContext
 
-Additional functinality
+Additional functinality :-
     > Form Validation 
     > Responsive 
+
+Try to replicate design :-
+    > Design File :- https://www.figma.com/design/p0HKPDRIYxxemTa4CFt8kJ/Candy-Shop?node-id=0-1&t=reHqPyIcTkg5nRsP-1
 
 Best of luck ✨✨💕
