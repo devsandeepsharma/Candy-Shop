@@ -1,8 +1,10 @@
+import { useState } from "react";
+
 import Header from "./components/Layout/Header";
 import Candies from "./components/Candies/Candies";
 import Footer from "./components/Layout/Footer";
 import Cart from "./components/Cart/Cart";
-import { useState } from "react";
+import CartContextProvider from "./store/CartContextProvider";
 
 function App() {
 
@@ -17,14 +19,14 @@ function App() {
   }
 
   return (
-    <>
+    <CartContextProvider>
       {isCartVisible && <Cart onClose={hideIsCartVisible} />}
       <Header onClick={showIsCartVisible} />
       <main>
         <Candies />
       </main>
       <Footer />
-    </>
+    </CartContextProvider>
   );
 }
 
