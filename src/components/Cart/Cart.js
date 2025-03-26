@@ -3,26 +3,38 @@ import { useContext } from "react"
 import Modal from "../UI/Modal"
 import "./cart.css"
 import CardContext from "../../store/CartContext"
+import Button from "../UI/Button"
 
 const Cart = (props) => {
 
-    const {message, items} = useContext(CardContext);
+    const {items, addItems} = useContext(CardContext);
+
+    const totalPrice = items.length > 0 ? items.reduce((total, item) => total + (item.quantity * item.price), 0) : 0;
 
     return (
         <Modal title="Your Cart" onClose={props.onClose} btnText="Order Candies">
             <ul className="cart-container">
-                <li className="cart_item">
-                    <div className="cart_details">
-                        {console.log(items)}
-                        <p className="cart_name">Candy Name</p>
-                        <p className="cart_price">Candy Price</p>
-                    </div>
-                    <p className="cart_count">5</p>
-                </li>
+                {
+                    items.length > 0 ?
+                        items.map((item, index) => (
+                            <li className={`cart_item ${index === items.length - 1 ? "last_cart_item" : ""}`} key={item.name}>
+                                <div className="cart_details">
+                                    <p className="cart_name">{item.name}</p>
+                                    <p className="cart_price">Rs. {item.price}/-</p>
+                                </div>
+                                <p className="cart_count">{item.quantity}x</p>
+                                <div className="btn-container">
+                                    <Button>-</Button>
+                                    <Button onClick={() => {addItems(item, 1)}}>+</Button>
+                                </div>
+                            </li>
+                        ))
+                        : <p className="cart-msg">No Items Available....</p>
+                }
             </ul>
             <div className="cart-total">
                 <p>Total Price</p>
-                <p>Rs. 550/-</p>
+                <p>Rs. {totalPrice}/-</p>
             </div>
         </Modal>
     )
