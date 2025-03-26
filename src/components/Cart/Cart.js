@@ -7,7 +7,7 @@ import Button from "../UI/Button"
 
 const Cart = (props) => {
 
-    const {items, addItems} = useContext(CardContext);
+    const {items, addItems, removeItems} = useContext(CardContext);
 
     const totalPrice = items.length > 0 ? items.reduce((total, item) => total + (item.quantity * item.price), 0) : 0;
 
@@ -24,7 +24,7 @@ const Cart = (props) => {
                                 </div>
                                 <p className="cart_count">{item.quantity}x</p>
                                 <div className="btn-container">
-                                    <Button>-</Button>
+                                    <Button onClick={() => {removeItems(item)}}>-</Button>
                                     <Button onClick={() => {addItems(item, 1)}}>+</Button>
                                 </div>
                             </li>

@@ -6,7 +6,7 @@ const CartContextProvider = (props) => {
 
     const [cartContextState, setCartContextState] = useState([])
 
-    const handleCartContextState = (cart, quantity=1) => {
+    const addItems = (cart, quantity=1) => {
         setCartContextState((prevsCart) => {
             const existingCartIndex = prevsCart.findIndex((prevsCartItem) => prevsCartItem.name === cart.name);
      
@@ -24,10 +24,30 @@ const CartContextProvider = (props) => {
         })
     }
 
+    const removeItems = (cart) => {
+        setCartContextState((prevsCart) => {
+            const existingCartIndex = prevsCart.findIndex((prevsCartItem) => prevsCartItem.name === cart.name);
+
+            const updatedCart = [...prevsCart];
+            const quantity = updatedCart[existingCartIndex].quantity;
+
+            if(quantity === 1) {
+                return updatedCart.filter(cartItem => cartItem.name !== cart.name);
+            } else {
+                updatedCart[existingCartIndex] = {
+                    ...updatedCart[existingCartIndex],
+                    quantity: updatedCart[existingCartIndex].quantity - 1
+                }
+            }
+
+            return updatedCart;
+        })
+    }
+
     const cartContextData = {
         items: cartContextState,
-        addItems: handleCartContextState,
-        removeItems: () => {},
+        addItems: addItems,
+        removeItems: removeItems,
     }
 
     return (
