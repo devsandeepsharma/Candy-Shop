@@ -4,8 +4,9 @@ import Header from "./components/Layout/Header";
 import Candies from "./components/Candies/Candies";
 import Footer from "./components/Layout/Footer";
 import Cart from "./components/Cart/Cart";
-import CartContextProvider from "./store/CartContextProvider";
 import CandiesForm from "./components/AddCandies/CandiesForm";
+import CandiesContextProvider from "./store/CandiesContextProvider";
+import CartContextProvider from "./store/CartContextProvider";
 
 function App() {
 
@@ -29,15 +30,17 @@ function App() {
   }
 
   return (
-    <CartContextProvider>
-      {isCartVisible && <Cart onClose={hideIsCartVisible} />}
-      {isAddCandyFormVisible && <CandiesForm onClose={hideIsAddCandyFormVisible} />}
-      <Header onCartButtonClick={showIsCartVisible} onAddButtonClick={showIsAddCandyFormVisible} />
-      <main>
-        <Candies />
-      </main>
-      <Footer />
-    </CartContextProvider>
+    <CandiesContextProvider>
+      <CartContextProvider>
+        {isCartVisible && <Cart onClose={hideIsCartVisible} />}
+        {isAddCandyFormVisible && <CandiesForm onClose={hideIsAddCandyFormVisible} />}
+        <Header onCartButtonClick={showIsCartVisible} onAddButtonClick={showIsAddCandyFormVisible} />
+        <main>
+          <Candies />
+        </main>
+        <Footer />
+      </CartContextProvider>
+    </CandiesContextProvider>
   );
 }
 

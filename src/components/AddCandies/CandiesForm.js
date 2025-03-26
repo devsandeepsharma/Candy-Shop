@@ -1,10 +1,15 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 
 import Input from "../UI/Input";
 import Modal from "../UI/Modal";
+import CandiesContext from "../../store/CandiesContext";
 import "./candiesForm.css";
 
+import defaultImg from "../../assets/default.jpg";
+
 const CandiesForm = (props) => {
+
+    const {addCandies} = useContext(CandiesContext);
 
     const candyNameRef = useRef()
     const candyDescRef = useRef()
@@ -24,20 +29,24 @@ const CandiesForm = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        const candyName = candyNameRef.current.value.trim();
+        const candyDesc = candyDescRef.current.value.trim();
+        const candyPrice = candyPriceRef.current.value.trim();
+
         setErrorMessages({ candyname: "", candydesc: "", candyprice: "" });
 
         let hasError = false;
         const newErrors = {};
 
-        if (candyNameRef.current.value.trim() === "") {
+        if (candyName === "") {
             newErrors.candyname = "Candy name is empty!";
             hasError = true;
         }
-        if (candyDescRef.current.value.trim() === "") {
+        if (candyDesc === "") {
             newErrors.candydesc = "Candy description is empty!";
             hasError = true;
         }
-        if (candyPriceRef.current.value.trim() === "") {
+        if (candyPrice === "") {
             newErrors.candyprice = "Candy price is empty!";
             hasError = true;
         }
@@ -47,9 +56,14 @@ const CandiesForm = (props) => {
             return;
         }
 
-        console.log("Candy Name:", candyNameRef.current.value);
-        console.log("Candy Desc:", candyDescRef.current.value);
-        console.log("Candy Price:", candyPriceRef.current.value);
+        const candy = {
+            name: candyName, 
+            desc: candyDesc, 
+            price: candyPrice, 
+            img: defaultImg
+        }
+
+        addCandies(candy);
         props.onClose();
     };
 
